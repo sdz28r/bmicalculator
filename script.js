@@ -33,7 +33,7 @@ function validateEnglish(){
     } else{
         message = message + "Please enter a value for inches.<br/>";
     }
-    if(!isNaN(weight) && weight>40){
+    if(!isNaN(weight) && weight>45){
     } else{
         message = message + "Please enter a valid current weight(more than 45lbs).<br/>";
     }
@@ -278,3 +278,12 @@ function selectOnlyThisMetric(id) {
     }
     document.getElementById(id).checked = true;
 }
+
+function iframeLoaded() {
+      var iFrameID = document.getElementById('idIframe');
+      if(iFrameID) {
+            // here you can make the height, I delete it first, then I make it again
+            iFrameID.height = "";
+            iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
+      }   
+  }
