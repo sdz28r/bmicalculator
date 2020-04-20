@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>BMI Calculator</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+        
+        <script src="script.js"></script>
+        
+    </head>
+    <body onload="english()">
+        <div class="container"> 
+            <div class="row">
+                <div class="col-xs-12 col-md-offset-3 col-md-6 col-md-offset-3">
+                    <h2 style="color: darkorange">Learn Your Body Mass Index (BMI)</h2>
+                    
+                    <p id="error" style="display:none;"></p>
+                    
+                    <div style="background-color: #eeeeee; padding-bottom: 10px;">
+                        <table width="100%">
+                            <tr>
+                                <td style="padding: 5px; width:49%;"><h3>About You</h3></td>
+                                <td style="float: right; padding: 5px;"><h3><button onclick="english()" id='engbtn'>English</button><button id='metbtn' onclick="metric()">Metric</button></h3></td>
+                            </tr>
+                        </table>
+                            <div id="english">
+                                <table width="100%">
+                                    <tr>
+                                        <td style="padding: 15px; width:50%;"><h3><input type="checkbox" id="1" onclick="selectOnlyThis(this.id)" name="gender" value='male'> Male</h3></td>
+                                        <td style="padding: 15px;"><h3><input type="checkbox" id="2" onclick="selectOnlyThis(this.id)" name="gender" value='female'> Female</h3></td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td style="padding: 5px; width:34%;"><input type="text" style="height: 50px;" id="age" name="age" placeholder="Age"></td>
+                                        <td style="padding: 5px; width:66%;">
+                                            <select name="foot" id="foot" style="width: 66%; height: 50px;">
+                                                <option value="">Height Ft.</option>
+                                                <option value=3>3 ft</option>
+                                                <option value=4>4 ft</option>
+                                                <option value=5>5 ft</option>
+                                                <option value=6>6 ft</option>
+                                                <option value=7>7 ft</option>
+                                                <option value=8>8 ft</option>
+                                            </select>
+                                            <select name="inch" id="inch" style="width: 34%; height: 50px; margin-left: -5px">
+                                                <option value="">In.</option>
+                                                <option value=0>0 in</option>
+                                                <option value=1>1 in</option>
+                                                <option value=2>2 in</option>
+                                                <option value=3>3 in</option>
+                                                <option value=4>4 in</option>
+                                                <option value=5>5 in</option>
+                                                <option value=6>6 in</option>
+                                                <option value=7>7 in</option>
+                                                <option value=8>8 in</option>
+                                                <option value=9>9 in</option>
+                                                <option value=10>10 in</option>
+                                                <option value=11>11 in</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <table width="100%">
+                                    <tr>
+                                        <td style="padding: 5px; width:50%"><input type="text" style="height: 50px; width:80%;" id="weight" name="weight" 
+                                            placeholder="Current Weight"><input style="height: 50px; width:20%;" type="text" value="lbs" readonly></td>
+                                        <td style="padding: 5px; width:50%"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px; width:50%"><button class="btnn" type="submit" id="valeng" onclick="validateEnglish()">CALCULATE</button>
+                                        <button class="btnn" id="start" onclick="resetEnglish()" style="display: none;">START OVER</button></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        
+                        
+                            <div id="metric">
+                                <table width="100%">
+                                    <tr>
+                                        <td style="padding: 15px; width:50%;"><h3><input type="checkbox" id="3" onclick="selectOnlyThisMetric(this.id)" name="gender" value='male'> Male</h3></td>
+                                        <td style="padding: 15px;"><h3><input type="checkbox" id="4" onclick="selectOnlyThisMetric(this.id)" name="gender" value='female'> Female</h3></td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td style="padding: 5px; width:50%;"><input type="text" style="height: 50px; width: 100%" id="agemetric" name="agemetric" placeholder="Age"></td>
+                                        <td style="padding: 5px; width:50%;"><input type="text" style="height: 50px; width:80%;" id="heightmetric" name="heightmetric" placeholder="Height">
+                                            <input style="height: 50px; width:20%; margin-left: -5px" type="text" value="cm" readonly></td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td style="padding: 5px; width:50%"><input type="text" style="height: 50px; width:80%;" id="weightmetric" name="weightmetric" 
+                                            placeholder="Current Weight"><input style="height: 50px; width:20%;" type="text" value="kg" readonly></td>
+                                        <td style="padding: 5px; width:50%"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px; width:50%"><button class="btnn" type="submit" id="valmet" onclick="validateMetric()">CALCULATE</button>
+                                        <button class="btnn" id="startover" onclick="resetMetric()" style="display: none;">START OVER</button></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                    </div>
+                    <p id="p" style="margin-top: 20px; text-align: justify;"></p>
+                    <button class="btnn" id="startoveragain" onclick="resetEnglish()" style="display: none;">START OVER</button>
+                    <button class="btnn" id="startoveragainmetric" onclick="resetMetric()" style="display: none;">START OVER</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
