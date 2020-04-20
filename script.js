@@ -33,9 +33,9 @@ function validateEnglish(){
     } else{
         message = message + "Please enter a value for inches.<br/>";
     }
-    if(!isNaN(weight) && weight>45){
+    if(!isNaN(weight) && weight>0){
     } else{
-        message = message + "Please enter a valid current weight(more than 45lbs).<br/>";
+        message = message + "Please enter a valid current weight.<br/>";
     }
     if(message == ""){
         age = parseInt(age);
@@ -132,14 +132,14 @@ function validateMetric(){
     } else{
         message = message + "Please enter a valid age.<br/>";
     }
-    if(height != "" && height>50){
+    if(height != "" && height>0){
         height = parseInt(height);
     } else{
-        message = message + "Please enter a value height(more than 50cm).<br/>";
+        message = message + "Please enter a value height.<br/>";
     }
-    if(!isNaN(weight) && weight>20){
+    if(!isNaN(weight) && weight>0){
     } else{
-        message = message + "Please enter a valid current weight(more than 20kg.<br/>";
+        message = message + "Please enter a valid current weight.<br/>";
     }
     if(message == ""){
         var calc = (weight * 100 * 100)/((height)*(height));
